@@ -21,17 +21,20 @@ void displayDashLine();
 int main(void)
 {
     displayDashLine();
-    string plainText = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
-    cout << "Original  message is: " << plainText << endl;
+    string plainText;
+    cout << "Enter a Sentence: ";
+    getline(cin, plainText);
+    cout << "\nOriginal message is: " << plainText << endl;
     displayDashLine();
     
     string ciphertext = encryption(plainText);
     cout << "Encrypted message is: " << ciphertext << endl;
     displayDashLine();
-    
+
     string deciphertext = decryption(ciphertext);
     cout << "Decrypted message is: " << deciphertext << endl;
-    displayDashLine(); 
+    displayDashLine();
+
     
     return 0;
 }
