@@ -27,10 +27,12 @@ int main(void)
     cout << "\nOriginal message is: " << plainText << endl;
     displayDashLine();
     
+    // Encrypting the original message. Substituting each letter 3 places to the left. For example D becomes A. 
     string ciphertext = encryption(plainText);
     cout << "Encrypted message is: " << ciphertext << endl;
     displayDashLine();
-
+    
+    // Decrypting the encrypted message back to the original message. 
     string deciphertext = decryption(ciphertext);
     cout << "Decrypted message is: " << deciphertext << endl;
     displayDashLine();
