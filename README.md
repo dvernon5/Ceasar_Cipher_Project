@@ -1,4 +1,4 @@
-# ceasar_cipher_project
+# Ceasar_Cipher_Project
 
 A solution to the Ceaser Cipher Project.
 
