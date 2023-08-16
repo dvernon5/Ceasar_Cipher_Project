@@ -34,7 +34,6 @@ int main(void)
     cout << "Decrypted message is: " << deciphertext << endl;
     displayDashLine();
 
-    
     return 0;
 }
 
