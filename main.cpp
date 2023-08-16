@@ -66,41 +66,31 @@ int characterToInteger(char letter)
 
 char shiftedCharacter(char letter, int shift) 
 {
-    return 'A' + (letter - 'A' + shift + numberInAlphabets) % numberInAlphabets;
+    int characterInteger = characterToInteger(letter);
+    if (characterInteger >= 0) 
+    {
+        return intToCharMapping[(characterInteger + shift + numberInAlphabets) % numberInAlphabets];
+    }
+    return letter;
 }
 
-string encryptMessage(string plainText) {
+string encryptMessage(string plainText) 
+{
     string ciphertext = "";
     for (char c : plainText) 
     {
-        int characterInteger = characterToInteger(c);
-        if (characterInteger >= 0) 
-        {
-            ciphertext += shiftedCharacter(c, -leftShift);
-        } else 
-        {
-            ciphertext += c;
-        }
+        ciphertext += shiftedCharacter(c, -leftshift);
     }
-    
     return ciphertext;
 }
 
 string decryptMessage(string ciphertext) 
 {
-    string deciphertext = "";
+   string deciphertext = "";
     for (char c : ciphertext) 
     {
-        int characterInteger = characterToInteger(c);
-        if (characterInteger >= 0) 
-        {
-            deciphertext += shiftedCharacter(c, leftShift);
-        } else 
-        {
-            deciphertext += c;
-        }
+        deciphertext += shiftedCharacter(c, leftShift);
     }
-    
     return deciphertext;
 }
 
