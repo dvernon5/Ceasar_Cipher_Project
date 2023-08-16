@@ -40,22 +40,33 @@ int main(void)
 
 int characterToInteger(char letter)
 {
-    if (letter >= 'A' && letter <= 'Z')
-    {
+     if (letter >= 'A' && letter <= 'Z') 
+     {
         return letter - 'A';
-    }
-
-    return -1;  // Invalid character
+     }
+    return -1; // Invalid character
 }
 
-int shiftedCharacter(char letter, int shift)
+char shiftedCharacter(char letter, int shift) 
 {
     return 'A' + (letter - 'A' + shift + numberInAlphabets) % numberInAlphabets;
 }
 
-string encryptMessage(string plainText)
-{
+string encryptMessage(string plainText) {
+    string ciphertext = "";
+    for (char c : plainText) 
+    {
+        int characterInteger = characterToInteger(c);
+        if (characterInteger >= 0) 
+        {
+            ciphertext += shiftedCharacter(c, -leftShift);
+        } else 
+        {
+            ciphertext += c;
+        }
+    }
     
+    return ciphertext;
 }
 
 string decryption(string& ciphertext)
