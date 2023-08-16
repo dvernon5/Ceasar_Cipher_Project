@@ -38,27 +38,24 @@ int main(void)
     return 0;
 }
 
-string encryption(string& plainText)
+int characterToInteger(char letter)
 {
-    string ciphertext = "";
-    
-    for (int i = 0; i < plainText.size(); i++)
+    if (letter >= 'A' && letter <= 'Z')
     {
-        int characterInteger = characterToInteger(plainText[i]);
-        
-        if (characterInteger >= 0)
-        {
-            ciphertext.append(1,encryptedIntegerToCharacter(characterInteger));
-        }
-        else
-        {
-            ciphertext.append(1,plainText[i]);
-        }
+        return letter - 'A';
     }
+
+    return -1;  // Invalid character
+}
+
+int shiftedCharacter(char letter, int shift)
+{
+    return 'A' + (letter - 'A' + shift + numberInAlphabets) % numberInAlphabets;
+}
+
+string encryptMessage(string plainText)
+{
     
-    ciphertext[plainText.size()] = '\0';
-    
-    return ciphertext;
 }
 
 string decryption(string& ciphertext)
@@ -82,122 +79,6 @@ string decryption(string& ciphertext)
     deciphertext[ciphertext.size()] = '\0';
     
     return deciphertext;
-}
-
-int characterToInteger(char letter)
-{
-    switch (letter)
-    {
-        case 'A':
-            letter = 0;
-            break;
-            
-        case 'B':
-            letter = 1;
-            break;
-            
-        case 'C':
-            letter = 2;
-            break;
-            
-        case 'D':
-            letter = 3;
-            break;
-            
-        case 'E':
-            letter = 4;
-            break;
-            
-        case 'F':
-            letter = 5;
-            break;
-            
-        case 'G':
-            letter = 6;
-            break;
-            
-        case 'H':
-            letter = 7;
-            break;
-            
-        case 'I':
-            letter = 8;
-            break;
-            
-        case 'J':
-            letter = 9;
-            break;
-            
-        case 'K':
-            letter = 10;
-            break;
-            
-        case 'L':
-            letter = 11;
-            break;
-            
-        case 'M':
-            letter = 12;
-            break;
-            
-        case 'N':
-            letter = 13;
-            break;
-            
-        case 'O':
-            letter = 14;
-            break;
-            
-        case 'P':
-            letter = 15;
-            break;
-            
-        case 'Q':
-            letter = 16;
-            break;
-            
-        case 'R':
-            letter = 17;
-            break;
-            
-        case 'S':
-            letter = 18;
-            break;
-            
-        case 'T':
-            letter = 19;
-            break;
-            
-        case 'U':
-            letter = 20;
-            break;
-            
-        case 'V':
-            letter = 21;
-            break;
-            
-        case 'W':
-            letter = 22;
-            break;
-            
-        case 'X':
-            letter = 23;
-            break;
-            
-        case 'Y':
-            letter = 24;
-            break;
-            
-        case 'Z':
-            letter = 25;
-            break;
-            
-        default:
-            letter = -1;
-            break;
-    }
-    
-    return letter;
 }
 
 char encryptedIntegerToCharacter(int number)
