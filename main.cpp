@@ -3,18 +3,15 @@
 using namespace std;
 
 const int leftShift = 3;
-
 const int numberInAlphabets = 26;
-
-string encryption(string& plainText);
-
-string decryption(string& ciphertext);
 
 int characterToInteger(char letter);
 
-char encryptedIntegerToCharacter(int number);
+int shiftedCharacter(char letter, int shift);
 
-char decryptedIntegerToCharacter(int number);
+string encryptMessage(string plainText);
+
+string decrypMessage(string ciphertext);
 
 void displayDashLine();
 
