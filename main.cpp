@@ -56,10 +56,11 @@ int main(void)
 
 int characterToInteger(char letter)
 {
-     if (letter >= 'A' && letter <= 'Z') 
-     {
-        return letter - 'A';
-     }
+    auto itr = charToIntMapping.find(letter);
+    if (itr != charToIntMapping.end()) 
+    {
+        return itr->second;
+    }
     return -1; // Invalid character
 }
 
