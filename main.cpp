@@ -69,25 +69,20 @@ string encryptMessage(string plainText) {
     return ciphertext;
 }
 
-string decryption(string& ciphertext)
+string decryptMessage(string ciphertext) 
 {
     string deciphertext = "";
-    
-    for (int i = 0; i < ciphertext.size(); i++)
+    for (char c : ciphertext) 
     {
-        int characterInteger = characterToInteger(ciphertext[i]);
-        
-        if (characterInteger >= 0)
+        int characterInteger = characterToInteger(c);
+        if (characterInteger >= 0) 
         {
-            deciphertext.append(1, decryptedIntegerToCharacter(characterInteger));
-        }
-        else
+            deciphertext += shiftedCharacter(c, leftShift);
+        } else 
         {
-            deciphertext.append(1, ciphertext[i]);
+            deciphertext += c;
         }
     }
-    
-    deciphertext[ciphertext.size()] = '\0';
     
     return deciphertext;
 }
